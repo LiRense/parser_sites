@@ -1,0 +1,151 @@
+openapi: 3.0.3
+info:
+  title: Swagger Data - OpenAPI 3.0
+  description: For test api
+  version: 1.0.11
+servers:
+- url: http://127.0.0.1:8000/api/
+tags:
+- name: data
+  description: testing data 2
+paths:
+  /get_data:
+    get:
+      tags:
+      - data
+      summary: Get some data
+      description: Get data by Id
+      operationId: get_data_get
+      parameters:
+      - name: id
+        in: query
+        description: Status values that need to be considered for filter
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: successful operation
+        "404":
+          description: Invalid status value
+      x-openapi-router-controller: swagger_server.controllers.data_controller
+
+  /add_data:
+    post:
+      tags:
+      - data
+      summary: Add some data
+      description: ADD data by Id
+      operationId: add_data
+      requestBody:
+        description: Add new data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Content type is not supported.
+      x-openapi-router-controller: swagger_server.controllers.data_controller
+
+  /change_data:
+    put:
+      tags:
+      - data
+      summary: Change some data
+      description: Change data by Id
+      operationId: change_data
+      requestBody:
+        description: Change old data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Data'
+        "203":
+          description: Null value
+        "400":
+          description: Content type is not supported.
+        "404":
+          description: Not Found
+      x-openapi-router-controller: swagger_server.controllers.data_controller
+
+  /delete_data:
+    delete:
+      tags:
+      - data
+      summary: Deletes a data
+      description: delete a data
+      operationId: deletedata
+      parameters:
+      - name: id
+        in: query
+        description: Status values that need to be considered for filter
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Data'
+        "203":
+          description: Null value
+        "404":
+          description: Not found value
+      x-openapi-router-controller: swagger_server.controllers.data_controller
+components:
+  schemas:
+    Data2:
+      type: object
+      properties:
+        author:
+          type: string
+          example: theUser2
+        quote:
+          type: string
+          example: We`re making this analogy that AI is the new electricity
+      example:
+        quote: We`re making this analogy that AI is the new electricity
+        author: theUser2
+      xml:
+        name: data2
+    Data:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        author:
+          type: string
+          example: theUser
+        quote:
+          type: string
+          example: We`re making this analogy that AI is the new electricity
+      example:
+        quote: We`re making this analogy that AI is the new electricity
+        author: theUser
+        id: 10
+      xml:
+        name: data
+
+

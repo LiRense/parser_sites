@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger Petstore - OpenAPI 3.0",
+    "description": "For test api",
+    "version": "1.0.11"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000/api/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "data",
+      "description": "testing data 2"
+    }
+  ],
+  "paths": {
+    "/get_data": {
+      "get": {
+        "tags": [
+          "data"
+        ],
+        "summary": "Get some data",
+        "description": "Get data by Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    }
+  }
+}
