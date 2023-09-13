@@ -25,5 +25,5 @@ htmlcov/
 .coverage
 .coverage.*
 *,cover
-.minikube
-.minikube-linux-amd64
+/flask_swagger/minikube
+/flask_swagger/minikube-linux-amd64
