@@ -27,3 +27,5 @@ htmlcov/
 *,cover
 /flask_swagger/minikube
 /flask_swagger/minikube-linux-amd64
+/testing/
+/utmmeet/

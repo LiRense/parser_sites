@@ -4,7 +4,7 @@ info:
   description: For test api
   version: 1.0.11
 servers:
-- url: http://127.0.0.1:8000/api/
+- url: http://172.17.0.2:5000/api/
 tags:
 - name: data
   description: testing data 2

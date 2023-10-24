@@ -154,25 +154,25 @@ BASE_PATH = Path(__file__).resolve().parent
 
 app = Flask(__name__)
 api = Api(app)
-SWAGGER_URL = '/api/'
-API_URL = '/static/swagger.yaml'
-swaggerui_blueprint = get_swaggerui_blueprint(
-    SWAGGER_URL,  # Swagger UI static files will be mapped to '{SWAGGER_URL}/dist/'
-    API_URL,
-    config={  # Swagger UI config overrides
-        'app_name': "Test application"
-    },
-    # oauth_config={  # OAuth config. See https://github.com/swagger-api/swagger-ui#oauth2-configuration .
-    #    'clientId': "your-client-id",
-    #    'clientSecret': "your-client-secret-if-required",
-    #    'realm': "your-realms",
-    #    'appName': "your-app-name",
-    #    'scopeSeparator': " ",
-    #    'additionalQueryStringParams': {'test': "hello"}
-    # }
-)
-
-app.register_blueprint(swaggerui_blueprint,url_prefix=SWAGGER_URL)
+# SWAGGER_URL = '/api'
+# API_URL = '/static/swagger.yaml'
+# swaggerui_blueprint = get_swaggerui_blueprint(
+#     SWAGGER_URL,  # Swagger UI static files will be mapped to '{SWAGGER_URL}/dist/'
+#     API_URL,
+#     config={  # Swagger UI config overrides
+#         'app_name': "Test application"
+#     },
+#     # oauth_config={  # OAuth config. See https://github.com/swagger-api/swagger-ui#oauth2-configuration .
+#     #    'clientId': "your-client-id",
+#     #    'clientSecret': "your-client-secret-if-required",
+#     #    'realm': "your-realms",
+#     #    'appName': "your-app-name",
+#     #    'scopeSeparator': " ",
+#     #    'additionalQueryStringParams': {'test': "hello"}
+#     # }
+# )
+#
+# app.register_blueprint(swaggerui_blueprint,url_prefix=SWAGGER_URL)
 
 # curl -X GET http://127.0.0.1:5000/get_data?id=5
 @app.route('/api/get_data', methods=['GET'])
@@ -249,4 +249,4 @@ def delete():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8000,debug=True)
+    app.run(host="0.0.0.0",port=5000,debug=True)
